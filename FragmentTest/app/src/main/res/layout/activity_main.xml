@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.fragmenttest.MainActivity">
+
+
+    <TextView
+        android:id="@+id/tv_math"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textSize="20sp"
+        />
+
+
+    <FrameLayout
+        android:id="@+id/fl_rcplace"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_all"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:button="@null"
+            android:gravity="center"
+            android:id="@+id/rb_home"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="首页"
+            android:layout_height="match_parent" />
+
+        <RadioButton
+            android:button="@null"
+            android:gravity="center"
+            android:id="@+id/rb_app"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="应用"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:button="@null"
+            android:gravity="center"
+            android:id="@+id/rb_game"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="游戏"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:button="@null"
+            android:gravity="center"
+            android:id="@+id/rb_manger"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="管理"
+            android:layout_height="match_parent" />
+
+
+
+    </RadioGroup>
+
+
+
+</LinearLayout>
