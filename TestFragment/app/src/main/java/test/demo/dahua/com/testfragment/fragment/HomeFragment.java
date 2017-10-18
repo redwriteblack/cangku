@@ -1,0 +1,84 @@
+package test.demo.dahua.com.testfragment.fragment;
+
+import android.app.Fragment;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.Random;
+
+import test.demo.dahua.com.testfragment.MainActivity;
+import test.demo.dahua.com.testfragment.R;
+
+/**
+ * Created by dragon on 2017/9/19.
+ */
+
+public class HomeFragment extends Fragment {
+    private final String TAG = "HomeFragment";
+    private View view;
+    private TextView tv_str;
+    private Button btn_01;
+    private MainActivity mainActivity;
+
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Bundle bundle = getArguments();
+        String str = bundle.getString("str", "");
+
+        mainActivity = (MainActivity) getActivity();
+
+        view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_home, null);
+        btn_01 = (Button) view.findViewById(R.id.btn_01);
+
+        btn_01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random random = new Random();
+                int i = random.nextInt();
+                mainActivity.setTVText(i+"");
+
+
+               /* if (onButtonClickListenner != null) {
+                    onButtonClickListenner.buttonClick(i);
+                }*/
+
+            }
+
+        });
+        tv_str = (TextView) view.findViewById(R.id.tv_str);
+        tv_str.setText(str);
+
+        return view;
+    }
+
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.e(TAG, "onDetach: " );
+    }
+
+    OnButtonClickListenner onButtonClickListenner;
+
+    public void setOnButtonClickListenner(OnButtonClickListenner onButtonClickListenner) {
+        this.onButtonClickListenner = onButtonClickListenner;
+    }
+
+    public void setFragmentText(String info) {
+        tv_str.setText(info);
+
+    }
+
+    public interface  OnButtonClickListenner{
+     void buttonClick(int i);
+    }
+}
